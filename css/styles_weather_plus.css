@@ -1,0 +1,265 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Acme|Staatliches|Oxanium:wght@500&display=swap');
+
+
+:root {
+    --border-color: rgba(139, 159, 191, 0.47);
+    --moon-left: 150px;
+    --moon-top: 50px;
+    --moon-diameter: 80px;
+    --uvColor: hsl(120, 100%, 42%);
+}
+
+
+@keyframes flash {
+    0% { color: var(--uvColor); }
+    50%   { color: #cdcdcd; }
+    100% { color: var(--uvColor); }
+}
+
+.flashWarning {
+    animation: 2s linear 0s infinite alternate flash;
+}
+
+
+body {
+
+    background-image: url("../castle_landscape.svg");
+    background-color: hsla(213, 38%, 74%, 0.71) ;
+    display: grid;
+    align-items: center;
+    font-family: /*'Continuum Medium',*/'Oxanium',sans-serif;
+
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(4, 260px);
+}
+
+#attribution {
+    font-size: .5rem;
+}
+
+#attribution #attrLabel {
+    color: #890aaa;
+}
+
+#attribution a {
+    color: #00c600;
+}
+
+#location {
+    margin-left: 11px;
+    grid-row: 1 / 2;
+    grid-column: 2 / 4;
+    justify-self: start;
+    align-self: center;
+    color: #a149c8;
+    font-size: 1.5rem;
+    line-height: 20px;
+}
+
+#location a {
+    color: #993460;
+    font-size: .8rem;
+    text-decoration: none;
+    transition: all .85s;
+}
+
+#location a #latLongDisplay {
+    color: #993460;
+    font-size: .8rem;
+}
+
+#location a:hover {
+    color: #b34cc3;
+    text-shadow: 1px 1px 2px #910cff, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+#location #latLongDisplay .parentheses {
+    color: #890aaa;
+    font-size: .8rem;
+}
+
+#search {
+    grid-row: 1 / 2;
+    grid-column: 4 / 5;
+    width: 240px;
+    justify-self: end;
+}
+
+#search legend {
+    color: #392264;
+}
+
+/*form styles*/
+
+fieldset {
+    border-top-width: 5px;
+    border-top-color: var(--border-color);
+    border-right-width: 5px;
+    border-right-color: var(--border-color);
+    border-left-width: 5px;
+    border-left-color: var(--border-color);
+    border-bottom-width: 5px;
+    border-bottom-color: var(--border-color);
+    padding: 10px;
+}
+
+legend {
+    font-weight: bold;
+    color: #bd5555;
+}
+
+
+label {
+    font-family: 'Acme', sans-serif;
+    justify-self: end;
+    font-size: 1.2rem;
+}
+
+input, select {
+    background-color: rgba(19, 132, 150, 0.68);
+    color: #d9ab73;
+    font-size: 1.1rem;
+    font-family: 'Acme', sans-serif;
+}
+
+button {
+    border: inset;
+    padding-top: 3px;
+    background-color: rgba(0, 83, 166, 0.66);
+    color: #cdaccc;
+    font-size: 1rem;
+    font-family: 'Staatliches', sans-serif;
+}
+
+
+
+
+#wrapper {
+    padding-top: 15vh;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    z-index: 99;
+    background-color: transparent;
+
+}
+
+#current {
+    grid-column: 2 / 5;
+    font-size: 3.5rem;
+    color: crimson;
+}
+
+.currentTemperature {
+    grid-column: 2 / 4;
+    font-size: 4rem;
+    color: purple;
+}
+
+.feelsLike {
+    font-size: 1rem;
+    color: #131f80;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.feelsLikeDesc {
+    color: firebrick;
+}
+
+.uv {
+    margin-left: 34px;
+}
+
+.uv .uvDesc {
+    color: #590eb1;
+}
+
+.uv #uvIndex {
+    color: var(--uvColor);
+    text-shadow: 1px 1px 2px #910cff, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+#todayLabel {
+    color: #258586;
+}
+
+#today {
+    grid-column: 2 / 5;
+    font-size: 2rem;
+    color: #771988;
+}
+
+
+
+.fahrenheit {
+    color: green;
+}
+
+.hiAndLow {
+    grid-column: 2 / 4;
+    font-size: 2rem;
+    color: #1a09a8;
+}
+
+.tempTime {
+    font-size: 1rem;
+}
+
+.wind {
+    grid-column: 2 / 3;
+    color: #0d4d59;
+}
+
+.wind .mph {
+    color: green;
+}
+
+.hiLoEtc {
+    /*color: #886697;*/
+    color: #645281;
+}
+
+#coords {
+    color: #9b39a1;
+    grid-row: 1 / 2;
+    grid-column: 5 / 6;
+}
+
+
+
+.object {
+    /*background-color: #00c600;*/
+    position: absolute;
+    border-radius: 50%;
+}
+
+
+#element {
+    /*left: var(--moon-left);*/
+    /*top: var(--moon-top);*/
+    height: var(--moon-diameter);
+    width: var(--moon-diameter);
+}
+
+#element2 {
+    /*left: var(--moon-left);*/
+    /*top: var(--moon-top);*/
+    height: var(--moon-diameter);
+    width: var(--moon-diameter);
+    /*box-shadow: -5px 0px 5px inset;*/
+    /*filter: drop-shadow(-5px 0px 15px blue);*/
+}
+
+#moonContainer {
+    position: absolute;
+    left: var(--moon-left);
+    top: var(--moon-top);
+    height: var(--moon-diameter);
+    width: var(--moon-diameter);
+    transform: rotateZ(23deg);
+}
